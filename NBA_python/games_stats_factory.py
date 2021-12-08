@@ -5,19 +5,30 @@ from game_stats import GameStats
 
 
 def get_yesterday():
+    """
+    :return: the date of yesterday in format y-m-d (E.g. 2021-12-07)
+    """
     yesterday = datetime.today() - timedelta(days=1)
     return yesterday.strftime("%Y-%m-%d")
 
 
-def get_games_ids(game_date=get_yesterday()):
+def get_games_ids(games_date=get_yesterday()):
+    """
+    :param games_date: date of the required games
+    :return: list with the game_ids of the games that day
+    """
     games = scoreboardv2.ScoreboardV2(game_date=get_yesterday())
     games_df = games.game_header.get_data_frame()
     games_ids = [game_id for game_id in games_df["GAME_ID"]]
     return games_ids
 
 
-def get_games_stats(game_date=get_yesterday()):
-    games_ids = get_games_ids(game_date)
+def get_games_stats(games_date=get_yesterday()):
+    """
+    :param games_date: date of the required games
+    :return: list of GameStats
+    """
+    games_ids = get_games_ids(games_date)
     games_stats = []
     for game_id in games_ids:
         game_stats = boxscoresummaryv2.BoxScoreSummaryV2(game_id=game_id)
