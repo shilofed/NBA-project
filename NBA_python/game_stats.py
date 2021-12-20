@@ -15,7 +15,7 @@ class GameStats:
         SECOND_wins_losses = self.line_score.TEAM_WINS_LOSSES[1].split("-")
         first_rate = int(first_wins_losses[0]) / (int(first_wins_losses[0])+ int(first_wins_losses[1]))
         second_rate = int(SECOND_wins_losses[0]) / (int(SECOND_wins_losses[0])+ int(SECOND_wins_losses[1]))
-        score += (first_rate + second_rate) * 7
+        score += (first_rate + second_rate) * 5
 
         final_score = self.line_score.PTS
         winner = np.argmax(final_score)
