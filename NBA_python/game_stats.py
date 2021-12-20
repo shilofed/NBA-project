@@ -8,20 +8,28 @@ class GameStats:
         self.other_stats = other_stats
 
     def get_score(self):
-        score = np.max(self.other_stats.LEAD_CHANGES)
-        if np.max(self.line_score.PTS_OT1):
+        score = 0
+
+        score += np.max(self.other_stats.LEAD_CHANGES) / 2  # number of times the lead changed hands
+
+        if np.max(self.line_score.PTS_OT1) > 0:  # if was an over time
             score += 5
+        if np.max(self.line_score.PTS_OT2) > 0:  # 2 overtimes
+            score += 3
+
         first_wins_losses = self.line_score.TEAM_WINS_LOSSES[0].split("-")
         SECOND_wins_losses = self.line_score.TEAM_WINS_LOSSES[1].split("-")
-        first_rate = int(first_wins_losses[0]) / (int(first_wins_losses[0])+ int(first_wins_losses[1]))
-        second_rate = int(SECOND_wins_losses[0]) / (int(SECOND_wins_losses[0])+ int(SECOND_wins_losses[1]))
-        score += (first_rate + second_rate) * 5
+        first_rate = int(first_wins_losses[0]) / (int(first_wins_losses[0])+ int(first_wins_losses[1]))  # win rate of first team
+        second_rate = int(SECOND_wins_losses[0]) / (int(SECOND_wins_losses[0])+ int(SECOND_wins_losses[1]))  # win rate of second team
+        score += (first_rate + second_rate) * 20  # add points for good teams
 
         final_score = self.line_score.PTS
         winner = np.argmax(final_score)
-        turn_around = self.other_stats.LARGEST_LEAD[1 - winner]
-        score += turn_around / 3
+        turn_around = self.other_stats.LARGEST_LEAD[1 - winner]  # adds for comeback of winner
+        score += turn_around / 5
+
         final_score_close = np.max(final_score) - np.min(final_score)
-        score -= final_score_close / 5
+        score -= final_score_close / 3
+
         return score
     # todo: create a way to calculate the game score we want

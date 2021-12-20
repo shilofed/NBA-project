@@ -1,4 +1,5 @@
-from nba_api.stats.endpoints import scoreboardv2, boxscoresummaryv2
+from nba_api.stats.endpoints import scoreboardv2, boxscoresummaryv2, boxscoreadvancedv2, BoxScorePlayerTrackV2
+from nba_api.stats import endpoints
 from tabulate import tabulate
 from datetime import datetime, timedelta
 from game_stats import GameStats
@@ -19,6 +20,7 @@ def get_games_ids(games_date=get_yesterday()):
     """
     games = scoreboardv2.ScoreboardV2(game_date=get_yesterday())
     games_df = games.game_header.get_data_frame()
+    games_df = games_df[games_df["GAME_STATUS_ID"] == 3]  # only finished games
     games_ids = [game_id for game_id in games_df["GAME_ID"]]
     return games_ids
 
@@ -34,5 +36,9 @@ def get_games_stats(games_date=get_yesterday()):
         game_stats = boxscoresummaryv2.BoxScoreSummaryV2(game_id=game_id)
         line_score = game_stats.line_score.get_data_frame()
         other_stats = game_stats.other_stats.get_data_frame()
+
+        # box_score = boxscoreadvancedv2.BoxScoreAdvancedV2(game_id=game_id)
+        # first_team_box = box_score.data_sets[0].get_data_frame()
+
         games_stats.append(GameStats(line_score, other_stats))
     return games_stats

@@ -7,7 +7,10 @@ if __name__ == '__main__':
     best_score = None
     for game in games_stats:
         score = game.get_score()
-        print(game.other_stats.TEAM_CITY[0] + " vs " + game.other_stats.TEAM_CITY[1] + " score: " + str(score))
+        print(game.line_score.TEAM_CITY_NAME[0] + " " + game.line_score.TEAM_NICKNAME[0]
+              + " vs "
+              + game.line_score.TEAM_CITY_NAME[1] + " " + game.line_score.TEAM_NICKNAME[1]
+              + " score: " + str(score))
 
         if score > biggest_score:
             biggest_score = score
@@ -15,4 +18,6 @@ if __name__ == '__main__':
     if best_score == None:
         print("no game last night")
     else:
-        print(best_score.other_stats.TEAM_CITY[0] + " vs " + best_score.other_stats.TEAM_CITY[1])
+        print(best_score.line_score.TEAM_CITY_NAME[0] + " " + best_score.line_score.TEAM_NICKNAME[0]
+              + " vs "
+              + best_score.line_score.TEAM_CITY_NAME[1] + " " + best_score.line_score.TEAM_NICKNAME[1])
