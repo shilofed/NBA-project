@@ -38,7 +38,6 @@ def get_games_stats(games_date=get_yesterday()):
         other_stats = game_stats.other_stats.get_data_frame()
         player_stats = BoxScoreTraditionalV2(game_id=game_id).player_stats.get_data_frame()
 
-
         # box_score = boxscoreadvancedv2.BoxScoreAdvancedV2(game_id=game_id)
         # first_team_box = box_score.data_sets[0].get_data_frame()
 

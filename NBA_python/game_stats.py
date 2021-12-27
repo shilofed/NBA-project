@@ -1,6 +1,7 @@
 from pandas import DataFrame as df
 import numpy as np
 
+
 class GameStats:
 
     def __init__(self, line_score: df, other_stats: df):
@@ -19,8 +20,10 @@ class GameStats:
 
         first_wins_losses = self.line_score.TEAM_WINS_LOSSES[0].split("-")
         SECOND_wins_losses = self.line_score.TEAM_WINS_LOSSES[1].split("-")
-        first_rate = int(first_wins_losses[0]) / (int(first_wins_losses[0])+ int(first_wins_losses[1]))  # win rate of first team
-        second_rate = int(SECOND_wins_losses[0]) / (int(SECOND_wins_losses[0])+ int(SECOND_wins_losses[1]))  # win rate of second team
+        first_rate = int(first_wins_losses[0]) / (
+                    int(first_wins_losses[0]) + int(first_wins_losses[1]))  # win rate of first team
+        second_rate = int(SECOND_wins_losses[0]) / (
+                    int(SECOND_wins_losses[0]) + int(SECOND_wins_losses[1]))  # win rate of second team
         score += (first_rate + second_rate) * 20  # add points for good teams
 
         final_score = self.line_score.PTS
