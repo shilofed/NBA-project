@@ -23,4 +23,5 @@
 hs_err_pid*
 
 .idea/
-try.py
+*try.py
+__pycache__/
