@@ -25,5 +25,5 @@ hs_err_pid*
 .idea/
 *try.py
 __pycache__/
-NBA_Android_Studio/local.properties
+local.*
 .gradle/
