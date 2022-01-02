@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="atlanta_hawks_id">1610612737</integer>
+    <integer name="boston_celtics_id">1610612738</integer>
+    <integer name="brooklyn_nets_id">1610612751</integer>
+    <integer name="charlotte_hornets_id">1610612766</integer>
+    <integer name="chicago_bulls_id">1610612741</integer>
+    <integer name="cleveland_cavaliers_id">1610612739</integer>
+    <integer name="dallas_mavericks_id">1610612742</integer>
+    <integer name="denver_nuggets_id">1610612743</integer>
+    <integer name="detroit_pistons_id">1610612765</integer>
+    <integer name="golden_state_warriors_id">1610612744</integer>
+    <integer name="houston_rockets_id">1610612745</integer>
+    <integer name="indiana_pacers_id">1610612754</integer>
+    <integer name="los_angeles_clippers_id">1610612746</integer>
+    <integer name="los_angeles_lakers_id">1610612747</integer>
+    <integer name="memphis_grizzlies_id">1610612763</integer>
+    <integer name="miami_heat_id">1610612748</integer>
+    <integer name="milwaukee_bucks_id">1610612749</integer>
+    <integer name="minnesota_timberwolves_id">1610612750</integer>
+    <integer name="new_orleans_pelicans_id">1610612740</integer>
+    <integer name="new_york_knicks_id">1610612752</integer>
+    <integer name="oklahoma_city_thunder_id">1610612760</integer>
+    <integer name="orlando_magic_id">1610612753</integer>
+    <integer name="philadelphia_76ers_id">1610612755</integer>
+    <integer name="phoenix_suns_id">1610612756</integer>
+    <integer name="portland_trail_blazers_id">1610612757</integer>
+    <integer name="sacramento_kings_id">1610612758</integer>
+    <integer name="san_antonio_spurs_id">1610612759</integer>
+    <integer name="toronto_raptors_id">1610612761</integer>
+    <integer name="utah_jazz_id">1610612762</integer>
+    <integer name="washington_wizards_id">1610612764</integer>
+</resources>

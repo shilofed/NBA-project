@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="atlanta_hawks_abr">ATL</string>
+    <string name="boston_celtics_abr">BOS</string>
+    <string name="brooklyn_nets_abr">BKN</string>
+    <string name="charlotte_hornets_abr">CHA</string>
+    <string name="chicago_bulls_abr">CHI</string>
+    <string name="cleveland_cavaliers_abr">CLE</string>
+    <string name="dallas_mavericks_abr">DAL</string>
+    <string name="denver_nuggets_abr">DEN</string>
+    <string name="detroit_pistons_abr">DET</string>
+    <string name="golden_state_warriors_abr">GSW</string>
+    <string name="houston_rockets_abr">HOU</string>
+    <string name="indiana_pacers_abr">IND</string>
+    <string name="los_angeles_clippers_abr">LAC</string>
+    <string name="los_angeles_lakers_abr">LAL</string>
+    <string name="memphis_grizzlies_abr">MEM</string>
+    <string name="miami_heat_abr">MIA</string>
+    <string name="milwaukee_bucks_abr">MIL</string>
+    <string name="minnesota_timberwolves_abr">MIN</string>
+    <string name="new_orleans_pelicans_abr">NOP</string>
+    <string name="new_york_knicks_abr">NYK</string>
+    <string name="oklahoma_city_thunder_abr">OKC</string>
+    <string name="orlando_magic_abr">ORL</string>
+    <string name="philadelphia_76ers_abr">PHI</string>
+    <string name="phoenix_suns_abr">PHX</string>
+    <string name="portland_trail_blazers_abr">POR</string>
+    <string name="sacramento_kings_abr">SAC</string>
+    <string name="san_antonio_spurs_abr">SAS</string>
+    <string name="toronto_raptors_abr">TOR</string>
+    <string name="utah_jazz_abr">UTA</string>
+    <string name="washington_wizards_abr">WAS</string>
+</resources>

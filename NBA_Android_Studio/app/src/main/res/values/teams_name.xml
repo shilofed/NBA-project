@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="atlanta_hawks">Atlanta Hawks</string>
+    <string name="boston_celtics">Boston Celtics</string>
+    <string name="brooklyn_nets">Brooklyn Nets</string>
+    <string name="charlotte_hornets">Charlotte Hornets</string>
+    <string name="chicago_bulls">Chicago Bulls</string>
+    <string name="cleveland_cavaliers">Cleveland Cavaliers</string>
+    <string name="dallas_mavericks">Dallas Mavericks</string>
+    <string name="denver_nuggets">Denver Nuggets</string>
+    <string name="detroit_pistons">Detroit Pistons</string>
+    <string name="golden_state_warriors">Golden State Warriors</string>
+    <string name="houston_rockets">Houston Rockets</string>
+    <string name="indiana_pacers">Indiana Pacers</string>
+    <string name="los_angeles_clippers">Los Angeles Clippers</string>
+    <string name="los_angeles_lakers">Los Angeles Lakers</string>
+    <string name="memphis_grizzlies">Memphis Grizzlies</string>
+    <string name="miami_heat">Miami Heat</string>
+    <string name="milwaukee_bucks">Milwaukee Bucks</string>
+    <string name="minnesota_timberwolves">Minnesota Timberwolves</string>
+    <string name="new_orleans_pelicans">New Orleans Pelicans</string>
+    <string name="new_york_knicks">New York Knicks</string>
+    <string name="oklahoma_city_thunder">Oklahoma City Thunder</string>
+    <string name="orlando_magic">Orlando Magic</string>
+    <string name="philadelphia_76ers">Philadelphia 76ers</string>
+    <string name="phoenix_suns">Phoenix Suns</string>
+    <string name="portland_trail_blazers">Portland Trail Blazers</string>
+    <string name="sacramento_kings">Sacramento Kings</string>
+    <string name="san_antonio_spurs">San Antonio Spurs</string>
+    <string name="toronto_raptors">Toronto Raptors</string>
+    <string name="utah_jazz">Utah Jazz</string>
+    <string name="washington_wizards">Washington Wizards</string>
+</resources>
