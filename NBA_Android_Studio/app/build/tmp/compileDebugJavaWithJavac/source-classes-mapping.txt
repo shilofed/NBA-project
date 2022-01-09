@@ -1,2 +1,0 @@
-com/example/a2_screens/BuildConfig.java
- com.example.a2_screens.BuildConfig
