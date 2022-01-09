@@ -14,9 +14,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         var rollButton: Button = findViewById(R.id.button)
-//        rollButton.setOnClickListener{
-//            Context context =
-//        }
+        rollButton.setOnClickListener{
+            switch_screen(rollButton)
+        }
     }
     fun switch_screen(view: View){
 //        val intent = Intent()

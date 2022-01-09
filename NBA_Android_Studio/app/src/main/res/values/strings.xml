@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">2_screens</string>
+    <string name="vs">VS</string>
+    <string name="your_game_is_title">your game is:</string>
+    <string name="go_back">go back</string>
+    <string name="team_1_logo">team 1 logo</string>
+    <string name="team_2_logo">team_2_logo</string>
 </resources>

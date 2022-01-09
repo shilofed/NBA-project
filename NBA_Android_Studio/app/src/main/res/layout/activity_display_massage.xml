@@ -10,33 +10,83 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="your game is:"
+        android:text="@string/your_game_is_title"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.392"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.247" />
+        app:layout_constraintVertical_bias="0.172" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/go_back_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="go_back"
-        android:text="go back"
+        android:text="@string/go_back"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.801" />
+
+    <TextView
+        android:id="@+id/vs_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/vs"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/go_back_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/team_1_logo"
+        android:layout_width="164dp"
+        android:layout_height="150dp"
+        android:contentDescription="@string/team_1_logo"
+        app:layout_constraintBottom_toTopOf="@+id/go_back_button"
+        app:layout_constraintEnd_toStartOf="@+id/vs_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <ImageView
+        android:id="@+id/team_2_logo"
+        android:layout_width="164dp"
+        android:layout_height="150dp"
+        android:contentDescription="@string/team_2_logo"
+        app:layout_constraintBottom_toTopOf="@+id/go_back_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/vs_text"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/team_1_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text=""
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/go_back_button"
+        app:layout_constraintEnd_toStartOf="@+id/vs_text"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@drawable/game" />
+        app:layout_constraintTop_toBottomOf="@+id/team_1_logo"
+        app:layout_constraintVertical_bias="0.063" />
+
+    <TextView
+        android:id="@+id/team_2_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/go_back_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/vs_text"
+        app:layout_constraintTop_toBottomOf="@+id/team_2_logo"
+        app:layout_constraintVertical_bias="0.063"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
