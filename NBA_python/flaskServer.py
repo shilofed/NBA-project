@@ -9,13 +9,27 @@ import game_stats
 app = Flask(__name__)
 
 
-@app.route("/")
-def get_best_game():
+@app.route("/<arg>")
+def get_best_game(arg):
+    # print(arg)
     games_stats = games_stats_factory.get_games_stats()
     biggest_score = -np.inf
     best_score = None
     for game in games_stats:
-        score = game.get_score()
+        score = -np.inf
+        if arg == 'Great comeback':
+            score = game.get_score_greatest_comeback()
+        elif arg == 'Close game':
+            score = game.get_score_close_game()
+        elif arg == 'Good teams':
+            score = game.get_score_best_teams()
+        elif arg == 'Pick for me':
+            score = game.get_score()
+        elif arg == 'Bad game':
+            score = -game.get_score()
+        else:
+            score = game.get_score()
+
         if score > biggest_score:
             biggest_score = score
             best_score = game

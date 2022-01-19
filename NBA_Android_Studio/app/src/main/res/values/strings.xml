@@ -5,4 +5,14 @@
     <string name="go_back">go back</string>
     <string name="team_1_logo">team 1 logo</string>
     <string name="team_2_logo">team_2_logo</string>
+
+
+    <string-array name="types_of_game">
+        <item>Close game</item>
+        <item>Great comeback</item>
+        <item>Good teams</item>
+        <item>Pick for me</item>
+        <item>Bad game</item>
+    </string-array>
+
 </resources>

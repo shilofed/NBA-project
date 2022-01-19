@@ -29,9 +29,13 @@ class DisplayMassageActivity : AppCompatActivity() {
         goBackButton.setOnClickListener() {
             go_back()
         }
-
-        get_data()
-
+        val userPreference=intent.getStringExtra("preference")
+        if (userPreference != null) {
+            get_data(userPreference)
+        }
+        else{
+            get_data("")
+        }
     }
 
     fun go_back() {
@@ -40,10 +44,11 @@ class DisplayMassageActivity : AppCompatActivity() {
     }
 
 
-    fun get_data() {
+    fun get_data(userPreference: String) {
 
         val request = Request.Builder()
-            .url("http://192.168.1.14:5000/")
+//            .url("http://192.168.1.14:5000/")
+            .url("http://10.100.102.23:5000/$userPreference")
             .build()
 
         val client = OkHttpClient()
