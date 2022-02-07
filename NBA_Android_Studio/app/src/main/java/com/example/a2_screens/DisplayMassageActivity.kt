@@ -47,7 +47,7 @@ class DisplayMassageActivity : AppCompatActivity() {
     fun get_data(userPreference: String) {
 
         val request = Request.Builder()
-//            .url("http://192.168.1.14:5000/")
+//            .url("http://192.168.151.209:5000/$userPreference")
             .url("http://10.100.102.23:5000/$userPreference")
             .build()
 

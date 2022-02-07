@@ -1,12 +1,10 @@
 package com.example.a2_screens
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
-import android.widget.AdapterView
 import android.widget.AdapterView.OnItemClickListener
 
 import android.widget.AutoCompleteTextView
@@ -25,28 +23,41 @@ class MainActivity : AppCompatActivity() {
         // in our case pass the context, drop down layout ,and array.
         val arrayAdapter = ArrayAdapter(this, R.layout.dropdown_item, preferences)
         // get reference to the autocomplete text view
-        val autocompleteTV = findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView)
+//        val autocompleteTV = findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView)
         // set adapter to the autocomplete tv to the arrayAdapter
-        autocompleteTV.setAdapter(arrayAdapter)
-        var preference = ""
+//        autocompleteTV.setAdapter(arrayAdapter)
+//        var preference = "none"
+        var arg = ""
+        for (pref in resources.getStringArray(R.array.types_of_game)){
+            val curPref=intent.getIntExtra(pref, 5)
+            arg = "$arg$pref=$curPref;"
+        }
 
-
-        autocompleteTV.onItemClickListener =
-            OnItemClickListener { adapterView, view, position, id ->
-                preference = arrayAdapter.getItem(position).toString()
-            }
-
+//        autocompleteTV.onItemClickListener =
+//            OnItemClickListener { adapterView, view, position, id ->
+////                preference = arrayAdapter.getItem(position).toString()
+//            }
 
         val rollButton: Button = findViewById(R.id.button)
         rollButton.setOnClickListener{
-            switchScreen(rollButton, preference)
+            switchToGameRecScreen(rollButton, arg)
         }
-
+        val prefButton: Button = findViewById(R.id.pref_button)
+        prefButton.setOnClickListener{
+            switchToPrefScreen(prefButton)
+        }
     }
 
-    fun switchScreen(view: View, preference : String){
+    fun switchToGameRecScreen(view: View, preference : String){
         val intent = Intent(this, DisplayMassageActivity::class.java)
         intent.putExtra("preference", preference)
         startActivity(intent)
     }
+
+    fun switchToPrefScreen(view: View){
+        val intent = Intent(this, Preference::class.java)
+//        intent.putExtra("preference", preference)
+        startActivity(intent)
+    }
+
 }

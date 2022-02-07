@@ -58,7 +58,12 @@ class GameStats:
             score += 3
         final_score_close = np.max(final_score) - np.min(final_score)
         score -= final_score_close / 3
+        if final_score_close < 3:
+            score += 2
+        if final_score_close < 2:
+            score += 3
         # to add some check in game
+        # add buzzer basket
         return score
 
     def get_score_greatest_comeback(self):
@@ -68,5 +73,9 @@ class GameStats:
         score = turn_around
         return score
 
-    # def get_score_personal_performance(self):
-
+    def get_score_personal_performance(self):  # to change
+        final_score = self.line_score.PTS
+        winner = np.argmax(final_score)
+        turn_around = self.other_stats.LARGEST_LEAD[1 - winner]  # adds for comeback of winner
+        score = turn_around
+        return score
