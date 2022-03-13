@@ -4,9 +4,10 @@ import numpy as np
 
 class GameStats:
 
-    def __init__(self, line_score: df, other_stats: df):
+    def __init__(self, line_score: df, other_stats: df, player_stats: df):
         self.line_score = line_score
         self.other_stats = other_stats
+        self.player_stats = player_stats
 
     def get_score(self):
         score = 0
@@ -68,14 +69,29 @@ class GameStats:
 
     def get_score_greatest_comeback(self):
         final_score = self.line_score.PTS
-        winner = np.argmax(final_score)
-        turn_around = self.other_stats.LARGEST_LEAD[1 - winner]  # adds for comeback of winner
+        winner = self.line_score.TEAM_ID[np.argmax(final_score)]
+        arg = 0 if self.other_stats.TEAM_ID[0] == winner else 1
+        turn_around = self.other_stats.LARGEST_LEAD[1 - arg]  # adds for comeback of winner
         score = turn_around
         return score
 
     def get_score_personal_performance(self):  # to change
-        final_score = self.line_score.PTS
-        winner = np.argmax(final_score)
-        turn_around = self.other_stats.LARGEST_LEAD[1 - winner]  # adds for comeback of winner
-        score = turn_around
-        return score
+        first_team = self.player_stats[self.player_stats.TEAM_ID == self.player_stats.TEAM_ID[0]]
+        second_team = self.player_stats[self.player_stats.TEAM_ID != self.player_stats.TEAM_ID[0]]
+        score_first_team = 0
+        score_second_team = 0
+        for index, player in first_team.iterrows():
+            if player.MIN is None:
+                pass
+            else:
+                cur_score = int(player.PTS + player.AST + player.STL * 2 + player.BLK * 2 + player.REB / 2)
+                score_first_team = np.max([score_first_team, cur_score - 20])
+        for index, player in second_team.iterrows():
+            if player.MIN is None:
+                pass
+            else:
+                cur_score = int(player.PTS + player.AST + player.STL * 2 + player.BLK * 2 + player.REB / 2)
+                score_second_team = np.max([score_second_team, cur_score - 20])
+        return score_first_team + score_second_team
+
+
