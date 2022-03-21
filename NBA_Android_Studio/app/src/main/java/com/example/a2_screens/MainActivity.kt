@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun switchToPrefScreen(view: View){
-        val intent = Intent(this, Preference::class.java)
+        val intent = Intent(this@MainActivity, Preference::class.java)
 //        intent.putExtra("preference", preference)
         startActivity(intent)
     }
