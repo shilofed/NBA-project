@@ -11,11 +11,26 @@ import ast
 app = Flask(__name__)
 
 
+class Game:
+    def __init__(self, game):
+        self.game = game
+        self.comeback = game.get_score_greatest_comeback()
+        self.close_game = game.get_score_close_game()
+        self.best_teams = game.get_score_best_teams()
+        self.personal_performance = game.get_score_personal_performance()
+
+
+games_stats = games_stats_factory.get_games_stats()
+games = []
+for game in games_stats:
+    games.append(Game(game))
+
+
 @app.route("/<arg>")
 def get_best_game(arg):
     print(arg)
-    with open("games.gms", "rb") as f:
-        games = pickle.load(f)
+    # with open("games.gms", "rb") as f:
+    #     games = pickle.load(f)
     biggest_score = -np.inf
     pref = arg.split(";")
     pref = list(filter(bool, pref))
@@ -54,5 +69,6 @@ def get_best_game(arg):
 
 
 if __name__ == "__main__":
+
     # app.debug = True
     app.run(host='0.0.0.0')  # initialize server
