@@ -47,8 +47,8 @@ def get_best_game(arg):
             score += int(pref_dict['Close game']) * game_class.close_game
         if 'Good teams' in pref_dict:
             score += int(pref_dict['Good teams']) * game_class.best_teams
-        # if 'Pick for me' in pref_dict:
-        #     score += int(pref_dict['Pick for me']) * game.get_score()
+        if 'High game rate' in pref_dict:
+            score += int(pref_dict['High game rate']) * game.get_score_game_rate()
         if 'personal performance' in pref_dict:
             score += int(pref_dict['personal performance']) * game_class.personal_performance
 

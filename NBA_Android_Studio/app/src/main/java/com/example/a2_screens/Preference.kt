@@ -140,26 +140,31 @@ class Preference : AppCompatActivity() {
                 }
             }
         })
-//
-//        val seek4: SeekBar = findViewById(R.id.seekBar4)
-//        seek4.setOnSeekBarChangeListener(object :
-//            SeekBar.OnSeekBarChangeListener {
-//            override fun onProgressChanged(seek: SeekBar,
-//                                           progress: Int, fromUser: Boolean) {
-////                prefMap[prefArray[0]] = progress
-//
-//            }
-//
-//            override fun onStartTrackingTouch(seek: SeekBar) {
-//
-//                // write custom code for progress is started
-//            }
-//
-//            override fun onStopTrackingTouch(seek: SeekBar) {
-//
+
+        val seek4: SeekBar = findViewById(R.id.seekBar4)
+        seek4.progress = sharedPref.getInt(resources.getStringArray(R.array.types_of_game)[4], 5)
+        seek4.setOnSeekBarChangeListener(object :
+            SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seek: SeekBar,
+                                           progress: Int, fromUser: Boolean) {
+//                prefMap[prefArray[0]] = progress
+
+            }
+
+            override fun onStartTrackingTouch(seek: SeekBar) {
+
+                // write custom code for progress is started
+            }
+
+            override fun onStopTrackingTouch(seek: SeekBar) {
+
 //                prefMap[prefArray[4]] = seek.progress
-//            }
-//        })
+                with(sharedPref.edit()) {
+                    putInt(prefArray[4], seek.progress)
+                    apply()
+                }
+            }
+        })
 
 
     }

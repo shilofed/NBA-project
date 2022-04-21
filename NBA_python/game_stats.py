@@ -103,3 +103,8 @@ class GameStats:
                 cur_score = int(player.PTS + player.AST + player.STL * 2 + player.BLK * 2 + player.REB / 2)
                 score_second_team = np.max([score_second_team, cur_score - 20])
         return (np.max([0.75 * score_first_team + score_second_team, score_first_team + 0.75 * score_second_team]) - mean_personal_performances) / s_personal_performances
+
+
+    def get_score_game_rate(self):
+
+        return 0  #  to implement
