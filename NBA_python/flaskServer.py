@@ -7,23 +7,9 @@ import games_stats_factory
 import json
 import game_stats
 import ast
+from refresh_data import Game
 
 app = Flask(__name__)
-
-
-class Game:
-    def __init__(self, game):
-        self.game = game
-        self.comeback = game.get_score_greatest_comeback()
-        self.close_game = game.get_score_close_game()
-        self.best_teams = game.get_score_best_teams()
-        self.personal_performance = game.get_score_personal_performance()
-
-
-games_stats = games_stats_factory.get_games_stats()
-games = []
-for game in games_stats:
-    games.append(Game(game))
 
 
 @app.route("/<arg>")
@@ -39,6 +25,8 @@ def get_best_game(arg):
         cur_pref = p.split("=")
         pref_dict[cur_pref[0]] = cur_pref[1]
     best_score = None
+    with open("games.pkl", "rb") as f:
+        games = pickle.load(f)
     for game_class in games:
         score = 0
         if 'Great comeback' in pref_dict:
@@ -48,7 +36,7 @@ def get_best_game(arg):
         if 'Good teams' in pref_dict:
             score += int(pref_dict['Good teams']) * game_class.best_teams
         if 'High game rate' in pref_dict:
-            score += int(pref_dict['High game rate']) * game.get_score_game_rate()
+            score += int(pref_dict['High game rate']) * game_class.high_game_rate
         if 'personal performance' in pref_dict:
             score += int(pref_dict['personal performance']) * game_class.personal_performance
 

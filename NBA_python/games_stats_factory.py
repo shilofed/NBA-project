@@ -1,3 +1,5 @@
+import pytz
+import time
 from nba_api.stats.endpoints import scoreboardv2, boxscoresummaryv2, BoxScoreTraditionalV2, PlayByPlayV2
 from nba_api.stats import endpoints
 # from tabulate import tabulate
@@ -10,9 +12,7 @@ def get_yesterday():
     :return: the date of yesterday in format y-m-d (E.g. 2021-12-07)
     """
     days_delta = 1
-    if datetime.today().hour < 5:
-        days_delta = 2
-    yesterday = datetime.today() - timedelta(days=days_delta)
+    yesterday = datetime.now(pytz.timezone('US/Eastern')) - timedelta(days=days_delta)
     return yesterday.strftime("%Y-%m-%d")
 
 def get_last_k_days(k):
