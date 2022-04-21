@@ -30,8 +30,14 @@ class DisplayMassageActivity : AppCompatActivity() {
             go_back()
         }
         val userPreference=intent.getStringExtra("preference")
+        val predict = intent.getBooleanExtra("predict", false)
         if (userPreference != null) {
-            get_data(userPreference)
+            if (predict){
+                get_data("predict$userPreference")
+            }
+            else{
+                get_data(userPreference)
+            }
         }
         else{
             get_data("")
@@ -47,7 +53,7 @@ class DisplayMassageActivity : AppCompatActivity() {
     fun get_data(userPreference: String) {
 
         val request = Request.Builder()
-//            .url("http://192.168.151.209:5000/$userPreference")
+//            .url("http://192.168.26.209:5000/$userPreference")
             .url("http://10.100.102.23:5000/$userPreference")
             .build()
 
