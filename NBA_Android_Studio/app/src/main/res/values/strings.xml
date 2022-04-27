@@ -8,11 +8,11 @@
 
 
     <string-array name="types_of_game">
-        <item>Close game</item>
-        <item>Great comeback</item>
-        <item>Good teams</item>
-        <item>personal performance</item>
-        <item>High game rate</item>
+        <item>Close_game</item>
+        <item>Great_comeback</item>
+        <item>Good_teams</item>
+        <item>personal_performance</item>
+        <item>High_game_rate</item>
     </string-array>
 
 </resources>

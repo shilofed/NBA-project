@@ -54,7 +54,7 @@ class DisplayMassageActivity : AppCompatActivity() {
 
         val request = Request.Builder()
 //            .url("http://192.168.26.209:5000/$userPreference")
-            .url("http://10.100.102.23:5000/$userPreference")
+            .url("http://44.192.118.239/$userPreference")
             .build()
 
         val client = OkHttpClient()
