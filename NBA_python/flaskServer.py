@@ -22,6 +22,10 @@ def get_best_game(arg):
             self.personal_performance = game_stats.get_score_personal_performance()
             self.high_game_rate = game_stats.get_score_game_rate()
     biggest_score = -np.inf
+    predict = False
+    if "predict" in arg:
+        arg = arg[len("predict"):]
+        predict = True
     pref = arg.split(";")
     pref = list(filter(bool, pref))
     pref_dict = {}
@@ -29,8 +33,20 @@ def get_best_game(arg):
         cur_pref = p.split("=")
         pref_dict[cur_pref[0]] = cur_pref[1]
     best_score = None
-    with open("games.pkl", "rb") as f:
-        games = pickle.load(f)
+    # with open("games.pkl", "rb") as f:
+    #     games = pickle.load(f)
+    games = [Game(game) for game in games_stats_factory.get_games_stats()]  # move to the pickle
+    future_games_teams = games_stats_factory.get_future_games_teams()  # move to the pickle
+
+    json_response = {}
+    if predict:
+        if not future_games_teams:
+            json_response["response_tag"] = -1
+        else:  # to find the best future game
+            json_response["response_tag"] = 1
+            json_response["team_1_id"] = future_games_teams[0][0]
+            json_response["team_2_id"] = future_games_teams[0][1]
+        return json.dumps(json_response)
     for game_class in games:
         score = 0
         if 'Great_comeback' in pref_dict:
@@ -46,7 +62,6 @@ def get_best_game(arg):
         if score > biggest_score:
             biggest_score = score
             best_score = game_class.game
-    json_response = {}
     if best_score is None:
         json_response["response_tag"] = -1
     else:
@@ -63,4 +78,5 @@ def hello():
 if __name__ == "__main__":
 
     # app.debug = True
-    app.run()  # initialize server
+    # app.run()  # initialize server
+    app.run(host='0.0.0.0')  # added to run sever on computer

@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         val rollButton: Button = findViewById(R.id.button)
         rollButton.setOnClickListener{
-            switchToGameRecScreen(rollButton, arg)
+            switchToGameRecScreen(rollButton)
         }
         val prefButton: Button = findViewById(R.id.pref_button)
         prefButton.setOnClickListener{
@@ -35,20 +35,30 @@ class MainActivity : AppCompatActivity() {
         }
         val futureButton: Button = findViewById(R.id.future_button)
         futureButton.setOnClickListener{
-            getPredictFutureGame(futureButton, arg)
+            getPredictFutureGame(futureButton)
         }
     }
 
-    fun switchToGameRecScreen(view: View, preference : String){
+    fun switchToGameRecScreen(view: View){
+        var arg = ""
+        for (pref in resources.getStringArray(R.array.types_of_game)){
+            val curPref=intent.getIntExtra(pref, 5)
+            arg = "$arg$pref=$curPref;"
+        }
         val intent = Intent(this, DisplayMassageActivity::class.java)
-        intent.putExtra("preference", preference)
+        intent.putExtra("preference", arg)
         intent.putExtra("predict", false)
         startActivity(intent)
     }
 
-    fun getPredictFutureGame(view: View, preference : String){
+    fun getPredictFutureGame(view: View){
+        var arg = ""
+        for (pref in resources.getStringArray(R.array.types_of_game)){
+            val curPref=intent.getIntExtra(pref, 5)
+            arg = "$arg$pref=$curPref;"
+        }
         val intent = Intent(this, DisplayMassageActivity::class.java)
-        intent.putExtra("preference", preference)
+        intent.putExtra("preference", arg)
         intent.putExtra("predict", true)
         startActivity(intent)
     }
