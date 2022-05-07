@@ -33,10 +33,10 @@ class DisplayMassageActivity : AppCompatActivity() {
         val predict = intent.getBooleanExtra("predict", false)
         if (userPreference != null) {
             if (predict){
-                get_data("predict$userPreference")
+                get_data("predict/$userPreference")
             }
             else{
-                get_data(userPreference)
+                get_data("yesterday/$userPreference")
             }
         }
         else{
