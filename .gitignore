@@ -19,7 +19,7 @@
 *.tar.gz
 *.rar
 *.properties
-*.pkl
+
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
@@ -66,3 +66,6 @@ proguard-project.txt
 *.iml
 .idea
 NBA_Android_Studio/app/build/kotlin/compileDebugKotlin/
+pkl_files/
+future_games.pkl
+games.pkl
