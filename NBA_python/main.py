@@ -7,7 +7,6 @@ import read_db
 
 class Game:
     def __init__(self, game):
-        self.game = game
         self.comeback = game.get_score_greatest_comeback()
         self.close_game = game.get_score_close_game()
         self.best_teams = game.get_score_best_teams()
@@ -36,15 +35,48 @@ def creat_db_of_all_params_and_dates():
         pickle.dump(team_dates_and_score_dict, f)
     # print(team_dates_and_score_dict)
 
-
-if __name__ == '__main__':
+def calculate_moving_average_mse():
     with open('team_dates_and_score_dict.pkl', 'rb') as f:
         team_dates_and_score_dict = pickle.load(f)
+    personal_performances = {}
+    first = True
+    mse_lst = []
     for team_id in team_dates_and_score_dict:
+        performances = []
+        average = []
         for game in team_dates_and_score_dict[team_id]:
-            print(game[1].comeback)
+            performances.append(game[1].personal_performance)
+            # if len(performances) >= 5:
+            #     average.append(moving_average(performances[len(performances) - 5:], 5))
+            # else:
+            #     l = len(performances)
+            #     average.append(moving_average(performances[len(performances) - l:], l))
+        performances = np.array(performances)
+        average = np.concatenate((performances[:4], moving_average(performances, 5)))
+        for i in range(1, 4):
+            average[i] = performances[:i].mean()
+        personal_performances[team_id] = (performances, average)
+        mse = ((average - performances) ** 2).mean()
+        mse_lst.append(mse)
+
+        if first:
+            first = False
+            plt.plot(average, color='r')
+            plt.plot(performances, 'o', color='b',)
+            plt.title("moving average MSE = " + str(round(mse, 3)))
+            plt.show()
+
+    print(mse_lst)
+    print(np.mean(mse_lst))
 
 
+def moving_average(x, w):
+    return np.convolve(x, np.ones(w), 'valid') / w
+
+
+if __name__ == '__main__':
+    # creat_db_of_all_params_and_dates()
+    calculate_moving_average_mse()
 # if __name__ == '__main__':
 #     # games_stats = get_games_stats()
 #     # biggest_score = -np.inf
