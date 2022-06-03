@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.RelativeLayout
 import android.widget.SeekBar
 import android.widget.Toast
 import androidx.core.content.ContextCompat
@@ -15,6 +16,8 @@ class Preference : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_preference)
+
+
         val prefArray = resources.getStringArray(R.array.types_of_game)
 //        val prefMap = prefArray.map { it to 5 }.toMap().toMutableMap()
         val prefButton: Button = findViewById(R.id.back_button)

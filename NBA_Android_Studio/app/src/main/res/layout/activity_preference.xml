@@ -5,28 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Preference">
-
     <Button
         android:id="@+id/back_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/buttons"
         android:text="update and back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.812" />
+        app:layout_constraintVertical_bias="0.777" />
 
     <Button
         android:id="@+id/lucky_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/buttons"
         android:text="I FEEL LUCKY"
-        app:layout_constraintBottom_toTopOf="@+id/back_button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar3" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBar3"
+        app:layout_constraintVertical_bias="0.853" />
 
     <SeekBar
         android:id="@+id/seekBar0"
@@ -38,7 +41,10 @@
         app:layout_constraintBottom_toTopOf="@+id/back_button"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.1"
-        tools:layout_editor_absoluteX="49dp" />
+        tools:layout_editor_absoluteX="50dp" />
+<!--        android:progressDrawable="#C9FA16"-->
+<!--        android:thumb="@android:drawable/presence_online"-->
+
 
     <SeekBar
         android:id="@+id/seekBar1"
@@ -94,18 +100,20 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
         android:text="close game"
+        android:textColor="@color/text_on_background"
         app:layout_constraintBottom_toTopOf="@+id/seekBar0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.655" />
+        app:layout_constraintVertical_bias="0.9" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="comeback"
+        android:textColor="@color/text_on_background"
         app:layout_constraintBottom_toTopOf="@+id/seekBar1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -116,6 +124,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="good teams"
+        android:textColor="@color/text_on_background"
         app:layout_constraintBottom_toTopOf="@+id/seekBar2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -125,6 +134,7 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/text_on_background"
         android:text="personal preformance"
         app:layout_constraintBottom_toTopOf="@+id/seekBar3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -135,6 +145,7 @@
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/text_on_background"
         android:text="High game rate"
         app:layout_constraintBottom_toTopOf="@+id/seekBar4"
         app:layout_constraintEnd_toEndOf="parent"

@@ -21,42 +21,44 @@
         android:id="@+id/button"
         android:layout_width="288dp"
         android:layout_height="124dp"
+        android:backgroundTint="@color/buttons"
         android:onClick="switchToGameRecScreen"
         android:text="best game from yesterday"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.254"
+        app:layout_constraintVertical_bias="0.085"
         tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/future_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="288dp"
+        android:layout_height="124dp"
+        android:backgroundTint="@color/buttons"
         android:onClick="getPredictFutureGame"
-        android:text="not active yet"
-        android:backgroundTint="@android:color/holo_red_light"
+        android:text="best game today"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.341" />
 
     <Button
         android:id="@+id/pref_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@android:color/holo_green_dark"
+        android:backgroundTint="@color/buttons_second"
         android:onClick="switchToPrefScreen"
         android:text="change your preferences"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.098"
+        app:layout_constraintVertical_bias="0.948"
         tools:ignore="UsingOnClickInXml" />
 
     <ImageView
@@ -66,10 +68,10 @@
         android:layout_marginTop="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.322"
+        app:layout_constraintVertical_bias="0.565"
         app:srcCompat="@drawable/nbalogo" />
 
 
